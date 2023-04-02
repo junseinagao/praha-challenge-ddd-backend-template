@@ -17,7 +17,7 @@
 ## マイグレーション
 #### 実施手順
 1. `schema.prisma`にmodel追加
-2. `yarn migrate:dev`（本番環境の場合は`yarn migrate:prd`）
+2. `pnpm migrate:dev`（本番環境の場合は`pnpm migrate:prd`）
 3. これでmigrations配下に各マイグレーションの履歴が生成される
 
 #### ロールバックについて
@@ -26,10 +26,10 @@
 
 ## テスト
 #### 単体テスト
-1. `yarn test`
+1. `pnpm test`
 
 #### 統合テスト(DBに対するCRUDを含む)
-1. `yarn test:integration`
+1. `pnpm test:integration`
 
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
