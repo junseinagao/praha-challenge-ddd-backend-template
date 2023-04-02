@@ -1,17 +1,15 @@
 import { PrismaClient } from '@prisma/client'
 import { SomeDataRepository } from 'src/infra/db/repository/sample/some-data-repository'
 import { PostSomeDataUseCase } from '../post-some-data-usecase'
-import { mocked } from 'ts-jest/utils'
-import { MockedObjectDeep } from 'ts-jest/dist/utils/testing'
 
 jest.mock('@prisma/client')
 jest.mock('src/infra/db/repository/sample/some-data-repository')
 
 describe('do', () => {
-  let mockSomeDataRepo: MockedObjectDeep<SomeDataRepository>
+  let mockSomeDataRepo: jest.Mocked<SomeDataRepository>
   beforeAll(() => {
     const prisma = new PrismaClient()
-    mockSomeDataRepo = mocked(new SomeDataRepository(prisma), true)
+    mockSomeDataRepo = jest.mocked(new SomeDataRepository(prisma))
   })
   it('[正常系]: 例外が発生しない', async () => {
     const usecase = new PostSomeDataUseCase(mockSomeDataRepo)
