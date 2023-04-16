@@ -11,6 +11,8 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: "18.x"
+          cache: "pnpm"
+          cache-dependency-path: "backend/pnpm-lock.yaml"
       - run: |
           docker-compose -f ./.docker/docker-compose.yml build
           docker-compose -f ./.docker/docker-compose.yml up -d
